@@ -1,39 +1,69 @@
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Venda {
-    //variáveis
+    //objetos
     private LocalDateTime data;
     private String atendente;
+    private Cliente cliente;
+    private ArrayList<ItemVenda> itens = new ArrayList<>();
     
-    //métodos get e set
-    public void setdata(LocalDateTime data) {
+    //construtor
+    public Venda() {}
+    public Venda(String atendente, LocalDateTime data, Cliente cliente) {
+        this.atendente = atendente;
         this.data = data;
+        this.cliente = cliente;
     }
-    public LocalDateTime getdata() {
+
+    //get e set
+     public Cliente getCliente() {
+        return cliente;
+    }
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    public ArrayList<ItemVenda> getItens() {
+        return itens;
+    }
+    public void setItens(ArrayList<ItemVenda> itens) {
+        this.itens = itens;
+    }
+    public LocalDateTime getData() {
         return data;
     }
-    public void setatendente(String atendente) {
-        this.atendente = atendente;
+    public void setData(LocalDateTime data) {
+        this.data = data;
     }
-    public String getatendente() {
+    public String getAtendente() {
         return atendente;
     }
-
-    //método adicionar item
-    public void adicionarItem(ItemVenda item) {
-
+    public void setAtendente(String atendente) {
+        this.atendente = atendente;
     }
 
-    //método calcular total
+    //metodos
+    public void adicionarItem(ItemVenda item) {
+        itens.add(item);
+    }
+
     public double calcularTotal() {
         double total = 0.0;
-
+        for (ItemVenda item : itens) {
+            total = total + item.calcularTotal1();
+        }
         return total;
     }
 
-    //método lista de itens
     public void listarItensVenda() {
+        System.out.println("---------------------------------------------------");
+        System.out.printf("%-15s | %-10s | %-9s | %-10s \n", "Nome do Produto", "Preço", "Quantidade", "Total");
+        for (ItemVenda item : itens) {
+            System.out.println(item.getNome() + "      | R$ " + item.getPreco() + "    | " + item.getQuantidade() + "          | R$" + item.calcularTotal1());
+        }
+       
+        System.out.println("---------------------------------------------------");
+        System.out.println("Total da Venda:                             R$" + calcularTotal());
 
     }
-
 }

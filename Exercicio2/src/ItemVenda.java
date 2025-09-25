@@ -1,25 +1,26 @@
-public class ItemVenda {
-    //variaveis
+public class ItemVenda extends Produto{
+    //objeto
     private int quantidade;
-
-    // contrutores
-    public ItemVenda() {}
-    public ItemVenda(int quantidade) {
+    
+    //construtor
+    public ItemVenda(){}
+    public ItemVenda (int quantidade) {
         this.quantidade = quantidade;
-    }
+        }
+    
 
-    //métodos get e set
-    public void setquantidade(int quantidade) {
-        this.quantidade = quantidade;
-    }
-    public int getquantidade() {
+    //get e set
+    public int getQuantidade() {
         return quantidade;
     }
-
-    //método calcular total
-    public double calcularTotal() {
-        Produto produto = new Produto();
-        double total = quantidade * produto.getpreco();
-        return total;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
+
+    //metodo
+    public double calcularTotal1() {
+        double total = 0.0;
+        total = getQuantidade() * getPreco();
+        return total;
+    } 
 }

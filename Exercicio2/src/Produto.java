@@ -1,42 +1,42 @@
 public class Produto {
-    //variaveis
+    //objetos
     private int codigo;
-    private String name;
+    private String nome;
     private String descricao;
     private double preco;
 
-    //construtores
-    public Produto(){}
-    public Produto(int codigo, String name, String descricao, double preco) {
+    //construtor
+    public Produto() {}
+    public Produto(int codigo,String nome,String descricao,double preco) {
         this.codigo = codigo;
-        this.name = name;
+        this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
     }
 
-    //métodos get e set
-    public void setcodigo(int codigo) {
-        this.codigo = codigo;
-    }
-    public int getcodigo() {
+    //get e set
+    public int getCodigo() {
         return codigo;
     }
-    public void setname(String name) {
-        this.name = name;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
-    public String getname() {
-        return name;
+    public String getNome() {
+        return nome;
     }
-    public void setdescricao(String descricao) {
-        this.descricao = descricao;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
-    public String getdescricao() {
+    public String getDescricao() {
         return descricao;
     }
-    public void setpreco(double preco) {
-        this.preco = preco;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
-    public double getpreco() {
+    public double getPreco() {
         return preco;
+    }
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 }

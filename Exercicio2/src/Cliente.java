@@ -2,44 +2,50 @@ import java.time.LocalDate;
 import java.time.Period;
 
 public class Cliente {
-    //variáveis
+    //objetos
     private String cpf;
     private String nome;
     private LocalDate dataNascimento;
 
-    //construtores
+    //construtor
     public Cliente() {}
-    public Cliente(String cpf, String nome, LocalDate dataNascimento) {
-        this.cpf = cpf;
+    public Cliente (String nome, String cpf, LocalDate dataNascimento) {
         this.nome = nome;
+        this.cpf = cpf;
         this.dataNascimento = dataNascimento;
     }
 
-    //métodos get e set
-    public void setcpf(String cpf) {
-        this.cpf = cpf;
-    }
-    public String getcpf() {
-        return cpf;
-    }
-    public void setnome(String nome) {
-        this.nome = nome;
-    }
-    public String getnome() {
-        return nome;
-    }
-    public void setdataNascimento(LocalDate dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-    public LocalDate getdataNascimento() {
+    //get e set
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
-    //método calcular idade
-    public int calcularidade() {
-        Period p = Period.between(LocalDate.now(), dataNascimento);
-        
-        int idade = p.getYears();
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    //metodo
+    public int calcularIdade() {
+        LocalDate hoje = LocalDate.now();
+
+        int idade = Period.between(dataNascimento, hoje).getYears();
+
         return idade;
     }
 }
